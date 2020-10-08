@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg1219" width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs1213">
+  <linearGradient id="linearGradient1804">
+   <stop id="stop1800" stop-color="#fae664" offset="0"/>
+   <stop id="stop1802" stop-color="#dcc832" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1786" x1="96.73" x2="120.49" y1="151.57" y2="162.28" gradientTransform="translate(0 -2.0117e-5)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1804"/>
+  <linearGradient id="linearGradient1798" x1="98.704" x2="111.31" y1="147.04" y2="154.08" gradientTransform="translate(0 2.0117e-5)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1804"/>
+  <linearGradient id="linearGradient1828" x1="103.24" x2="108.42" y1="138.72" y2="138.72" gradientTransform="matrix(1 0 0 .68265 0 43.005)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1804"/>
+  <meshgradient id="meshgradient3288" x="100.57574" y="121.71354" gradientTransform="translate(0 .52917)" gradientUnits="userSpaceOnUse">
+   <meshrow id="meshrow3290">
+    <meshpatch id="meshpatch3292">
+     <stop id="stop3294" stop-color="#fff" path="l 0.957225,-6.00054"/>
+     <stop id="stop3296" stop-color="#dcc832" path="l 4.33444,-1.46449"/>
+     <stop id="stop3298" stop-color="#fff" path="l 0,0"/>
+     <stop id="stop3300" stop-color="#dcc832" path="l -5.29167,7.46503"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3302">
+     <stop id="stop3304" path="l -4.40044,-4.19034"/>
+     <stop id="stop3306" stop-color="#fff" path="l 8.73488,2.72585"/>
+     <stop id="stop3308" stop-color="#dcc832" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3310">
+     <stop id="stop3312" path="l 6.00266,-0.943894"/>
+     <stop id="stop3314" stop-color="#dcc832" path="l 2.73223,3.66975"/>
+     <stop id="stop3316" stop-color="#fff" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3318">
+     <stop id="stop3320" path="l 2.62544,-5.47995"/>
+     <stop id="stop3322" stop-color="#fff" path="l 0.106786,9.1497"/>
+     <stop id="stop3324" stop-color="#dcc832" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3326">
+     <stop id="stop3328" path="l 2.75262,5.41718"/>
+     <stop id="stop3330" stop-color="#dcc832" path="l -2.64583,3.73252"/>
+     <stop id="stop3332" stop-color="#fff" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3334">
+     <stop id="stop3336" path="l 6.02305,0.803543"/>
+     <stop id="stop3338" stop-color="#fff" path="l -8.66888,2.92897"/>
+     <stop id="stop3340" stop-color="#dcc832" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3342">
+     <stop id="stop3344" path="l -4.30144,4.2919"/>
+     <stop id="stop3346" stop-color="#dcc832" path="l -4.36744,-1.36293"/>
+     <stop id="stop3348" stop-color="#fff" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3350">
+     <stop id="stop3352" path="l 1.09701,5.97657"/>
+     <stop id="stop3354" stop-color="#fff" path="l -5.46445,-7.3395"/>
+     <stop id="stop3356" stop-color="#dcc832" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3358">
+     <stop id="stop3360" path="l -5.41106,-2.76465"/>
+     <stop id="stop3362" stop-color="#dcc832" path="l -0.0533932,-4.57485"/>
+     <stop id="stop3364" stop-color="#fff" path="l 0,0"/>
+    </meshpatch>
+    <meshpatch id="meshpatch3366">
+     <stop id="stop3368" path="l -5.34506,2.89018"/>
+     <stop id="stop3370" stop-color="#fff" path="l 5.29167,-7.46503"/>
+     <stop id="stop3372" stop-color="#dcc832" path="l 0,0"/>
+    </meshpatch>
+   </meshrow>
+  </meshgradient>
+  <linearGradient id="linearGradient3734" x1="88.314" x2="123.35" y1="116.03" y2="116.03" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1804"/>
+ </defs>
+ <metadata id="metadata1216">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1">
+  <path id="path1766" d="m86.263 162.28a19.571 12.095 0 0 1 19.571-12.095 19.571 12.095 0 0 1 19.571 12.095h-19.571z" fill="url(#linearGradient1786)" opacity=".99" stroke-width=".26458"/>
+  <ellipse id="path1776" cx="105.83" cy="150.19" rx="9.5149" ry="4.7575" fill="url(#linearGradient1798)" opacity=".99" stroke-width=".26458"/>
+  <path id="path1808" d="m123.22 101.96a17.387 28.133 0 0 1-8.6934 24.364 17.387 28.133 0 0 1-17.387-1e-5 17.387 28.133 0 0 1-8.6935-24.364h17.387z" fill="url(#linearGradient3734)" opacity=".99" stroke="#fae664" stroke-width=".265"/>
+  <rect id="rect1820" x="103.38" y="129.81" width="4.9127" height="15.778" fill="url(#linearGradient1828)" opacity=".99" stroke="#fae664" stroke-width=".21861"/>
+  <path id="path1844" d="m100.58 122.24 0.95723-6.0005-4.4004-4.1903 6.0027-0.9439 2.6254-5.48 2.7526 5.4172 6.023 0.80355-4.3014 4.2919 1.097 5.9766-5.4111-2.7646z" fill="#ffff65" opacity=".99" stroke="url(#meshgradient3288)" stroke-width=".265"/>
+  <ellipse id="path3742" cx="105.83" cy="101.8" rx="17.285" ry="1.1236" fill="#ffff65" opacity=".99" stroke="#fae664" stroke-width=".46089"/>
+ </g>
+</svg>

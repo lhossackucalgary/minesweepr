@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="122.95238mm"
+   height="143.96785mm"
+   viewBox="0 0 122.95238 143.96786"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="stopwatch.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <title
+     id="title893">stopwatch</title>
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="186.10183"
+     inkscape:cy="284.43659"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-nodes="true"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true"
+     borderlayer="false"
+     fit-margin-top="1"
+     fit-margin-bottom="1"
+     fit-margin-right="1"
+     fit-margin-left="1"
+     inkscape:snap-others="false"
+     objecttolerance="10"
+     scale-x="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>stopwatch</dc:title>
+        <dc:date>2020-09-07</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Lucas Hossack</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>CC0 - Public Domain</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:description>Stopwatch clock icon</dc:description>
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-46.625008,-36.859522)">
+    <circle
+       id="path3713"
+       cx="108.1012"
+       cy="119.35119"
+       r="60.476189"
+       style="stroke-width:0.26458332" />
+    <rect
+       id="rect3715"
+       width="40.901905"
+       height="25.278767"
+       x="87.650246"
+       y="39.220238"
+       style="stroke-width:0.26458332" />
+    <path
+       d="M 102.09274,179.37617 C 88.331209,177.42396 78.201186,173.00022 68.661806,164.77701 52.529261,150.87032 44.94915,128.98805 48.997486,108.01005 52.704772,88.799333 65.82859,72.222412 83.571902,64.338511 l 3.023809,-1.343572 -0.09959,-12.567708 -0.09959,-12.567709 h 20.226819 20.22683 v 12.035523 12.035523 l 2.74032,1.061884 c 19.7925,7.669633 34.0471,24.852547 37.94299,45.737608 1.05792,5.67124 0.97788,16.29628 -0.16579,22.0087 -4.84019,24.17601 -23.58929,42.98471 -47.59873,47.75004 -3.91121,0.77628 -14.65669,1.31572 -17.67623,0.88737 z"
+       id="path3719"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke-width:0.37797621" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.26458332"
+       id="path114"
+       cx="108.1012"
+       cy="119.35119"
+       r="48.380955" />
+    <rect
+       id="rect3715-3"
+       width="22.765686"
+       height="9.441638"
+       x="151.91974"
+       y="-59.082535"
+       style="stroke-width:0.12063596"
+       transform="rotate(45)" />
+    <path
+       style="fill:#000000;stroke-width:0.18113202"
+       d="m 106.46156,114.11397 -1.55689,-4.55602 1.46834,-10.628183 c 0.80757,-5.845499 1.49283,-10.595749 1.52279,-10.55611 0.03,0.03964 0.74876,4.967737 1.59736,10.951329 l 1.54288,10.879254 -1.47525,4.1936 c -0.81139,2.30648 -1.49035,4.21127 -1.50881,4.23287 -0.0184,0.0216 -0.73415,-2.01093 -1.59042,-4.51674 z"
+       id="path8573"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;stroke-width:0.21389571"
+       d="m 113.37835,121.5046 5.32907,2.93536 8.51074,10.76832 c 4.68091,5.92257 8.46249,10.75775 8.40351,10.74481 -0.059,-0.0129 -5.08124,-3.93001 -11.16059,-8.70465 l -11.05336,-8.68116 -2.6694,-4.9376 c -1.46816,-2.71568 -2.67381,-4.96524 -2.67922,-4.99902 -0.005,-0.0338 2.38826,1.25948 5.31925,2.87394 z"
+       id="path8573-7"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.69999981px;line-height:1.25;font-family:Hack;-inkscape-font-specification:'Hack, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="102.21707"
+       y="164.25665"
+       id="text8607"><tspan
+         sodipodi:role="line"
+         id="tspan8609"
+         x="102.21707"
+         y="164.25665">VI</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.69999981px;line-height:1.25;font-family:Hack;-inkscape-font-specification:'Hack, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="97.696388"
+       y="84.428658"
+       id="text8607-9"><tspan
+         sodipodi:role="line"
+         id="tspan8629"
+         x="97.696388"
+         y="84.428658">XII</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.69999981px;line-height:1.25;font-family:Hack;-inkscape-font-specification:'Hack, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="60.027515"
+       y="123.71729"
+       id="text8607-4"
+       inkscape:transform-center-x="39.021352"
+       inkscape:transform-center-y="0.5345453"><tspan
+         sodipodi:role="line"
+         id="tspan8667"
+         x="60.027515"
+         y="123.71729">IX</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.69999981px;line-height:1.25;font-family:Hack;-inkscape-font-specification:'Hack, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="133.65671"
+       y="123.46616"
+       id="text8607-4-3"><tspan
+         sodipodi:role="line"
+         id="tspan8669"
+         x="133.65671"
+         y="123.46616">III</tspan></text>
+  </g>
+</svg>
