@@ -1,14 +1,14 @@
 <template>
   <div class="header">
     <h1>Minesweepr</h1>
-    <nav>
+    <div class="hud">
       <Difficulty/>
       <div class="bombtimer">
         <BombCount/>
         <Timer />
       </div>
       <MiscControls />
-    </nav>
+    </div>
   </div>
 </template>
 
@@ -41,7 +41,7 @@ padding: 0.5em;
   background-color: rgb(74,117,44);
 }
 
-nav {
+.hud {
   margin-top: 0.25em;
   display: grid;
   grid-template-columns: repeat(3, 1fr)
@@ -53,6 +53,7 @@ nav {
   align-items: center;
   justify-content: center;
   column-gap: 1em;
+  row-gap: 0.5em;
 }
 
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div class="">
-    Difficulty (dropdown)
+    <select name="difficulty" id="difficulty">
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+    </select>
   </div>
 </template>
 
@@ -19,8 +22,9 @@ export default {
 </script>
 
 <style scoped>
-img {
-  height: 1.5em;
+select {
+  padding: 0.25em;
+  border-radius: 0.5em;
+  background-color: white;
 }
-
 </style>
