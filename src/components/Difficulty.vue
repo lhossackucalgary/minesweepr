@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <select name="difficulty" id="difficulty">
+    <select name="difficulty" id="difficulty" v-model="difficulty" v-on:change="chgDifficulty()">
       <option value="Easy">Easy</option>
       <option value="Medium">Medium</option>
     </select>
@@ -8,16 +8,24 @@
 </template>
 
 <script>
+import EventBus from '@/store/EventBus.js';
+
 export default {
   name: 'Difficulty',
   components: {
-
   },
   data () {
     return {
-
+      difficulty: 'Easy'
+    }
+  },
+  methods: {
+    chgDifficulty() {
+      console.log(EventBus);
+      EventBus.$emit('setDifficulty', this.difficulty);
     }
   }
+
 }
 </script>
 
