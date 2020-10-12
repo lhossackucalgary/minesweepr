@@ -2,10 +2,9 @@
   <div
     class="tile"
     v-bind:class="{isOdd: this.isOdd}"
-    @click.right="clicked"
-    @click="clicked"
+    @click.right.prevent="flagSwap"
   >
-    {{ this.position }}
+  <img src="@/assets/flag-opt.svg" v-bind:class="{flagged: this.isFlagged}" alt="flag">
   </div>
 </template>
 
@@ -19,21 +18,37 @@ export default {
     }
   },
   props: {
-    position: Number,
+    x: Number,
+    y: Number,
     isBomb: Boolean,
     size: Number
   },
-  // watch: {
-  // },
-  created: function() {
-    if (this.position % 2 != 0) {
-      this.isOdd = true;
+  watch: {
+    x: function() {
+      this.setColor();
     }
+  },
+  created: function() {
+    this.setColor();
   },
   methods: {
     clicked (e) {
       console.log('clicked');
       console.log(e);
+    },
+    flagSwap() {
+      if (this.isFlagged === true) {
+        this.isFlagged = false;
+      } else if (this.isFlagged === false) {
+        this.isFlagged = true;
+      }
+    },
+    setColor(){
+      if ((this.x + this.y) % 2 <= 0.5) {
+        this.isOdd = true;
+      } else {
+        this.isOdd = false;
+      }
     }
   }
 }
@@ -48,5 +63,15 @@ export default {
 }
 .tile:hover {
   background-color: rgb(185, 221, 119);
+}
+img {
+  display: block;
+  width: 70%;
+  margin: auto;
+  margin-top: 10%;
+  visibility: hidden;
+}
+.flagged {
+  visibility: visible;
 }
 </style>

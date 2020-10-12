@@ -1,12 +1,13 @@
 <template>
-  <div class="game-grid" v-bind:class="{easy: this.difficulty == 0, medium: this.difficulty == 1}">
-    <Tile v-for="(tile, index) in tiles" v-bind:key="index" v-bind:position="index">
+  <div class="game-grid" v-bind:class="{easy: this.difficulty === 'Easy', medium: this.difficulty === 'Medium'}">
+    <Tile v-for="(tile, index) in tiles" v-bind:key="index" v-bind:x="getX(index)" v-bind:y="getY(index)">
     </Tile>
   </div>
 </template>
 
 <script>
 import Tile from "@/components/Tile.vue";
+import EventBus from "@/store/EventBus.js";
 
 export default {
   name: 'Gameboard',
@@ -16,10 +17,37 @@ export default {
   data () {
     return {
       tiles: [1,2,3,4,5,6,7,8,9,10],
-      difficulty: 0
+      difficulty: "Medium",
+      difficultyParams: {
+        "Easy": {
+          xLen: 10,
+          yLen: 8,
+          bombs: 10
+        },
+        "Medium": {
+          xLen: 18,
+          yLen: 14,
+          bombs: 40
+        }
+      }
     }
   },
   computed: {
+  },
+  methods: {
+    resetBoard(difficulty) {
+      this.tiles = new Array(this.difficultyParams[difficulty].xLen*this.difficultyParams[difficulty].yLen);
+      this.difficulty = difficulty;
+    },
+    getX(index){
+      return index % this.difficultyParams[this.difficulty].xLen;
+    },
+    getY(index){
+      return Math.floor(index / this.difficultyParams[this.difficulty].xLen);
+    }
+  },
+  mounted() {
+    EventBus.$on('setDifficulty', this.resetBoard)
   }
 }
 </script>
