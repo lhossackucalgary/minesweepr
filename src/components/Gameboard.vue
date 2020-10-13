@@ -16,7 +16,7 @@ export default {
   },
   data () {
     return {
-      tiles: [1,2,3,4,5,6,7,8,9,10],
+      tiles: [],
       difficulty: "Medium",
       difficultyParams: {
         "Easy": {
@@ -47,7 +47,8 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on('setDifficulty', this.resetBoard)
+    EventBus.$on('setDifficulty', this.resetBoard);
+    this.resetBoard("Easy");
   }
 }
 </script>

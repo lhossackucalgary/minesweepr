@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import EventBus from "@/store/EventBus.js";
+
 export default {
   name: "Tile",
   data () {
@@ -24,11 +26,13 @@ export default {
     size: Number
   },
   watch: {
-    x: function() {
+    y: function() {
       this.setColor();
     }
   },
   created: function() {
+    this.reset();
+    EventBus.$on('setDifficulty', this.reset);
     this.setColor();
   },
   methods: {
@@ -49,6 +53,9 @@ export default {
       } else {
         this.isOdd = false;
       }
+    },
+    reset() {
+      this.isFlagged = false;
     }
   }
 }
