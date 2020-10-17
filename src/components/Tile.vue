@@ -3,6 +3,7 @@
     class="tile"
     v-bind:class="{isOdd: this.isOdd}"
     @click.right.prevent="flagSwap"
+    @click.left.prevent="clicked"
   >
   <img src="@/assets/flag-opt.svg" v-bind:class="{flagged: this.isFlagged}" alt="flag">
   </div>
@@ -36,13 +37,17 @@ export default {
     this.setColor();
   },
   methods: {
-    clicked (e) {
-      console.log('clicked');
-      console.log(e);
+    clicked () {
+      if (!this.isFlagged) {
+        EventBus.$emit('tileclick', {x: this.x, y: this.y})
+      } else {
+        // ignore clicks on flagged squares
+      }
     },
     flagSwap() {
       if (this.isFlagged === true) {
         this.isFlagged = false;
+
       } else if (this.isFlagged === false) {
         this.isFlagged = true;
       }

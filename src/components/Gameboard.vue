@@ -29,7 +29,8 @@ export default {
           yLen: 14,
           bombs: 40
         }
-      }
+      },
+      started: false
     }
   },
   computed: {
@@ -38,17 +39,26 @@ export default {
     resetBoard(difficulty) {
       this.tiles = new Array(this.difficultyParams[difficulty].xLen*this.difficultyParams[difficulty].yLen);
       this.difficulty = difficulty;
+      this.started = false;
     },
     getX(index){
       return index % this.difficultyParams[this.difficulty].xLen;
     },
     getY(index){
       return Math.floor(index / this.difficultyParams[this.difficulty].xLen);
+    },
+    tileClicked(tile) {
+      if (!this.started) {
+        this.started = true;
+        EventBus.$emit('start');
+      }
+      console.log(tile);
     }
   },
   mounted() {
     EventBus.$on('setDifficulty', this.resetBoard);
     this.resetBoard("Easy");
+    EventBus.$on('tileclick', this.tileClicked);
   }
 }
 </script>
