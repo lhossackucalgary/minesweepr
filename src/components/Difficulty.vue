@@ -21,11 +21,12 @@ export default {
   },
   methods: {
     chgDifficulty() {
-      console.log(EventBus);
       EventBus.$emit('setDifficulty', this.difficulty);
     }
+  },
+  mounted() {
+    EventBus.$on('bombCountMounted', this.chgDifficulty);
   }
-
 }
 </script>
 

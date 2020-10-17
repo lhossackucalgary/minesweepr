@@ -15,7 +15,7 @@ export default {
   },
   data () {
     return {
-      flags: 0
+      flags: null
     }
   },
   methods: {
@@ -39,7 +39,8 @@ export default {
   mounted() {
     EventBus.$on('add-flag', this.addFlag);
     EventBus.$on('rm-flag', this.rmFlag);
-    EventBus.$on('setDifficulty', this.setFlagCount)
+    EventBus.$on('setDifficulty', this.setFlagCount);
+    EventBus.$emit('bombCountMounted');
   }
 }
 </script>
