@@ -47,9 +47,10 @@ export default {
     flagSwap() {
       if (this.isFlagged === true) {
         this.isFlagged = false;
-
+        EventBus.$emit('rm-flag');
       } else if (this.isFlagged === false) {
         this.isFlagged = true;
+        EventBus.$emit('add-flag');
       }
     },
     setColor(){
