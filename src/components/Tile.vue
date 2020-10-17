@@ -24,7 +24,7 @@ export default {
     x: Number,
     y: Number,
     isBomb: Boolean,
-    size: Number
+    numAdjacentBombs: Number
   },
   watch: {
     y: function() {
