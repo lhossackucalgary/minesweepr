@@ -1,19 +1,55 @@
 <template>
   <div class="timer-widget">
     <img src="@/assets/stopwatch-low-opt.svg" alt="Timer">
-    <p id="time">30</p>
+    <p id="time">{{ this.ellapsedTime }}</p>
   </div>
 </template>
 
 <script>
+import EventBus from "@/store/EventBus.js";
+
 export default {
   name: "Timer",
   components: {
   },
   data () {
     return {
-
+      ellapsedTime: null,
+      stopTimer: false,
+      startTime: null
     }
+  },
+  methods: {
+    resetTimer() {
+      this.stop();
+      this.ellapsedTime = 0;
+    },
+    start() {
+      this.ellapsedTime = 0;
+      this.startTime = Date.now();
+      this.stopTimer = false;
+      setTimeout(() => {
+        this.inc();
+      }, 1000);
+    },
+    stop() {
+      this.stopTimer = true;
+      this.ellapsedTime = (Date.now() - this.startTime)/1000;
+    },
+    inc() {
+      if (!this.stopTimer) {
+        this.ellapsedTime = parseInt((Date.now() - this.startTime)/1000);
+        setTimeout(() => {
+          this.inc();
+        }, 1000);
+      }
+    }
+  },
+  mounted() {
+      EventBus.$on('setDifficulty', this.resetTimer);
+      this.resetTimer();
+      EventBus.$on('stop', this.stop);
+      EventBus.$on('start', this.start);
   }
 }
 </script>
