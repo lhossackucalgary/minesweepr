@@ -34,14 +34,15 @@ export default {
     },
     stop() {
       this.stopTimer = true;
-      this.ellapsedTime = (Date.now() - this.startTime)/1000;
+      this.ellapsedTime = parseInt((Date.now() - this.startTime)/1000);
     },
     inc() {
       if (!this.stopTimer) {
         this.ellapsedTime = parseInt((Date.now() - this.startTime)/1000);
+        let clockDrift = (Date.now() - this.startTime) - (this.ellapsedTime * 1000);
         setTimeout(() => {
           this.inc();
-        }, 1000);
+        }, 1000-clockDrift);
       }
     }
   },
