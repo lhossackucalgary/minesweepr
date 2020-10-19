@@ -72,13 +72,11 @@ export default {
 .easy {
   height: 80vw;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(8, 1fr);
 }
 
 .medium {
   height: 77.778vw;
   grid-template-columns: repeat(18, 1fr);
-  grid-template-rows: repeat(14, 1fr);
 }
 
 @media (min-width: 800px) {

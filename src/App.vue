@@ -22,6 +22,7 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
+  background-color: rgb(87,138,52);
 }
 </style>
 
