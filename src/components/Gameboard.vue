@@ -122,7 +122,10 @@ export default {
       let indexNotAllowed = new Array();  // No bombs in the first square clicked!
       for (let i = -1; i < 2; i++) {
         for (let j = -1; j < 2; j++) {
-          indexNotAllowed.push(this.getIndex(i + tilexy.x, j + tilexy.y));
+          if (0 <= this.getIndex(i + tilexy.x, j + tilexy.y) &&
+              this.getIndex(i + tilexy.x, j + tilexy.y) < this.xLen * this.yLen) {
+            indexNotAllowed.push(this.getIndex(i + tilexy.x, j + tilexy.y));            
+          }
         }
       }
       while(numBombs < this.bombCount) {
