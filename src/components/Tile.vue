@@ -31,10 +31,8 @@ export default {
     numAdjacentBombs: Number
   },
   watch: {
-    y: function() {
-      this.setOdd();
-      this.setColor();
-    },
+    x: function() {this.moved()},
+    y: function() {this.moved()},
     isCleared: function () {
       this.setColor();
     }
@@ -52,6 +50,10 @@ export default {
       } else {
         // ignore clicks on flagged squares
       }
+    },
+    moved() {
+      this.setOdd();
+      this.setColor();
     },
     mousemove() {
       if (!this.isCleared) {

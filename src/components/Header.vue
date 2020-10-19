@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" ref="header">
     <h1>Minesweepr</h1>
     <div class="hud">
       <Difficulty/>

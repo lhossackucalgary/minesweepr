@@ -27,19 +27,15 @@ export default {
       // Flag removed from board, add count to 'flags remaining'
       this.flags += 1;
     },
-    setFlagCount(difficulty){
-      if (difficulty === "Easy") {
-        this.flags = 10;
-      }
-      else if (difficulty === "Medium") {
-        this.flags = 40;
-      }
+    setFlagCount(numBombs){
+      console.log('set bombs')
+      this.flags = numBombs;
     }
   },
   mounted() {
     EventBus.$on('add-flag', this.addFlag);
     EventBus.$on('rm-flag', this.rmFlag);
-    EventBus.$on('setDifficulty', this.setFlagCount);
+    EventBus.$on('setBombCount', this.setFlagCount);
     EventBus.$emit('bombCountMounted');
   }
 }

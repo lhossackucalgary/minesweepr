@@ -1,6 +1,15 @@
 <template>
-  <div class="game-grid" v-bind:class="{easy: this.difficulty === 'Easy', medium: this.difficulty === 'Medium'}">
-    <Tile v-for="(tile, index) in tiles" v-bind:key="index" v-bind:x="getX(index)" v-bind:y="getY(index)">
+  <div class="game-grid" ref="board"
+        v-bind:class="{easy: this.difficulty === 'Easy', medium: this.difficulty === 'Medium'}"
+        v-bind:style="{
+          height: this.boardHeight,
+          gridTemplateColumns: this.colTemplate
+        }"
+        >
+    <Tile v-for="(tile, index) in tiles"
+          v-bind:key="index"
+          v-bind:x="getX(index)"
+          v-bind:y="getY(index)">
     </Tile>
   </div>
 </template>
@@ -17,35 +26,78 @@ export default {
   data () {
     return {
       tiles: [],
-      difficulty: "Medium",
-      difficultyParams: {
-        "Easy": {
-          xLen: 10,
-          yLen: 8,
-          bombs: 10
-        },
-        "Medium": {
-          xLen: 18,
-          yLen: 14,
-          bombs: 40
-        }
-      },
+      difficulty: "",
+      boardHeight: null,
+      colTemplate: null,
+      bombCount: 0,
+      xLen: 0,
+      yLen: 0,
       started: false
     }
   },
-  computed: {
+  watch: {
+    bombCount: function() {
+      EventBus.$emit('setBombCount', this.bombCount);
+    }
   },
   methods: {
     resetBoard(difficulty) {
-      this.tiles = new Array(this.difficultyParams[difficulty].xLen*this.difficultyParams[difficulty].yLen);
+      // Set board template
+      let vw = this.$refs["board"].clientWidth;
+      let header_height = this.$parent.$children[0].$refs["header"].clientHeight;
+      let vh = window.innerHeight - header_height;
+      let aspect_ratio = vw/vh;
       this.difficulty = difficulty;
+
+      let tile_target = 180;
+      if (this.difficulty === "Easy") {
+        this.bombCount = 10;
+        if (vw < 600 || vh < 600) {
+          tile_target = 80;
+        } else {
+          tile_target = 180;
+        }
+      } else if (this.difficulty === "Medium") {
+        if (vw < 600 || vh < 600) {
+          tile_target = 200;
+          this.bombCount = 35;
+        } else {
+          tile_target = 252;
+          this.bombCount = 40;
+        }
+      }
+
+      // find a reasonable x-y size based on aspect_ratio..
+      let xLen = 1;
+      let yLen = 1;
+      while (xLen * yLen < tile_target) {
+        if (xLen/ yLen > aspect_ratio) {
+          yLen += 1;
+        } else {
+          xLen += 1;
+        }
+      }
+      if ( 0.95*vw/xLen * yLen >= vh) {
+        yLen -= 1;
+      }
+
+      this.xLen = xLen;
+      this.yLen = yLen;
+      this.colTemplate = `repeat(${this.xLen}, 1fr)`;
+      this.height = `${this.xLen/this.yLen}vw`
+
+      this.tiles = new Array(this.xLen*this.yLen);
+
       this.started = false;
     },
     getX(index){
-      return index % this.difficultyParams[this.difficulty].xLen;
+      return index % this.xLen;
     },
     getY(index){
-      return Math.floor(index / this.difficultyParams[this.difficulty].xLen);
+      return Math.floor(index / this.xLen);
+    },
+    getIndex(x,y){
+      return y*this.xLen + x;
     },
     tileClicked(tile) {
       if (!this.started) {
@@ -59,6 +111,9 @@ export default {
     EventBus.$on('setDifficulty', this.resetBoard);
     this.resetBoard("Easy");
     EventBus.$on('tileclick', this.tileClicked);
+    EventBus.$on('bombCountMounted', () => {
+      EventBus.$emit('setBombCount', this.bombCount);
+    });
   }
 }
 </script>
@@ -66,29 +121,13 @@ export default {
 <style media="screen">
 .game-grid {
   display: grid;
-  width: 100vw;
-}
-
-.easy {
-  height: 80vw;
-  grid-template-columns: repeat(10, 1fr);
-}
-
-.medium {
-  height: 77.778vw;
-  grid-template-columns: repeat(18, 1fr);
+  width: 95vw;
+  align-self: center;
 }
 
 @media (min-width: 800px) {
   .game-grid {
     width: 800px;
-    align-self: center;
-  }
-  .easy {
-    height: 640px;
-  }
-  .medium {
-    height: 622.23px;
   }
 }
 </style>

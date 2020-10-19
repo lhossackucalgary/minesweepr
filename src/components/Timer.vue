@@ -1,7 +1,7 @@
 <template>
   <div class="timer-widget">
     <img src="@/assets/stopwatch-low-opt.svg" alt="Timer">
-    <p id="time">{{ this.ellapsedTime }}</p>
+    <p id="time">{{ this.ellapsedTime.toString().padStart(3, '0') }}</p>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   },
   data () {
     return {
-      ellapsedTime: null,
+      ellapsedTime: 0,
       stopTimer: false,
       startTime: null
     }
