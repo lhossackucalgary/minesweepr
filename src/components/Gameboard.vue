@@ -95,10 +95,9 @@ export default {
         this.tiles[i] = {
           isBomb: false,
           isCleared: false,
-          numAdjacentBombs: null
+          numAdjacentBombs: 0
         }
       }
-      console.log(this.tiles);
       this.started = false;
     },
     getX(index){
@@ -114,8 +113,33 @@ export default {
       if (!this.started) {
         this.started = true;
         EventBus.$emit('start');
+        this.gameboardGen(tilexy);
       }
+      this.uncoverTiles(tilexy);
+    },
+    gameboardGen(tilexy) {
+      let numBombs = 0;
+      let indexNotAllowed = new Array();  // No bombs in the first square clicked!
+      for (let i = -1; i < 2; i++) {
+        for (let j = -1; j < 2; j++) {
+          indexNotAllowed.push(this.getIndex(i + tilexy.x, j + tilexy.y));
+        }
+      }
+      while(numBombs < this.bombCount) {
+        let bombIndex = Math.floor(Math.random()*this.xLen*this.yLen);
+        if (!indexNotAllowed.includes(bombIndex) && !this.tiles[bombIndex].isBomb) {
+          this.tiles[bombIndex].isBomb = true;
+          numBombs += 1;
+        }
+      }
+    },
+    uncoverTiles(tilexy) {
       console.log(tilexy);
+
+      this.checkVictory();
+    },
+    checkVictory() {
+      console.log('victory?');
     }
   },
   mounted() {

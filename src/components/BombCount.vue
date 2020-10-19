@@ -28,7 +28,6 @@ export default {
       this.flags += 1;
     },
     setFlagCount(numBombs){
-      console.log('set bombs')
       this.flags = numBombs;
     }
   },
