@@ -9,7 +9,11 @@
     <Tile v-for="(tile, index) in tiles"
           v-bind:key="index"
           v-bind:x="getX(index)"
-          v-bind:y="getY(index)">
+          v-bind:y="getY(index)"
+          v-bind:isBomb="tiles[index].isBomb"
+          v-bind:isCleared="tiles[index].isCleared"
+          v-bind:numAdjacentBombs="tiles[index].numAdjacentBombs"
+          >
     </Tile>
   </div>
 </template>
@@ -87,7 +91,14 @@ export default {
       this.height = `${this.xLen/this.yLen}vw`
 
       this.tiles = new Array(this.xLen*this.yLen);
-
+      for (let i = 0; i < this.tiles.length; i++) {
+        this.tiles[i] = {
+          isBomb: false,
+          isCleared: false,
+          numAdjacentBombs: null
+        }
+      }
+      console.log(this.tiles);
       this.started = false;
     },
     getX(index){
@@ -99,12 +110,12 @@ export default {
     getIndex(x,y){
       return y*this.xLen + x;
     },
-    tileClicked(tile) {
+    tileClicked(tilexy) {
       if (!this.started) {
         this.started = true;
         EventBus.$emit('start');
       }
-      console.log(tile);
+      console.log(tilexy);
     }
   },
   mounted() {
