@@ -166,7 +166,7 @@ export default {
       let checkme = new Array();
       let checkIndex = this.getIndex(tilexy.x, tilexy.y);
       if (this.tiles[checkIndex].isBomb) {
-        // alert("you lost")
+        alert("you lost")
         return;
       }
       if (!this.tiles[checkIndex].isCleared){
@@ -205,7 +205,15 @@ export default {
       this.checkVictory();
     },
     checkVictory() {
-      console.log('');
+      let uncovered = 0;
+      for (let i = 0; i < this.tiles.length; i++) {
+        if (this.tiles[i].isCleared && !this.tiles[i].isBomb) {
+          uncovered += 1;
+        }
+      }
+      if (uncovered === this.tiles.length - this.bombCount) {
+        alert("You win!");
+      }
     }
   },
   mounted() {
