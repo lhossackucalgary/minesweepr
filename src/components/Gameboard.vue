@@ -163,22 +163,49 @@ export default {
       this.uncoverTiles(tilexy);
     },
     uncoverTiles(tilexy) {
-      for (let i = -1; i < 2; i++) {
-        for (let j = -1; j < 2; j++) {
-          let checkIndex = this.getIndex(tilexy.x+i, tilexy.y+j);
-          if (0 <= checkIndex && checkIndex < this.tiles.length &&
-              this.tiles[checkIndex].numAdjacentBombs ){
-            console.log('checking')
+      let checkme = new Array();
+      let checkIndex = this.getIndex(tilexy.x, tilexy.y);
+      if (this.tiles[checkIndex].isBomb) {
+        // alert("you lost")
+        return;
+      }
+      if (!this.tiles[checkIndex].isCleared){
+        this.tiles[checkIndex].isCleared = true;
+        if (!this.tiles[checkIndex].isBomb && this.tiles[checkIndex].numAdjacentBombs === null) {
+          checkme.push([this.getX(checkIndex), this.getY(checkIndex)]);
+        }
+      }
+
+
+      while (checkme.length > 0) {
+
+        let curTile = checkme.shift()
+        let x = curTile[0];
+        let y = curTile[1];
+        for (let i = -1; i < 2; i++) {
+          for (let j = -1; j < 2; j++) {
+            if (0 <= x+i && x+i < this.xLen && 0 <= y+j && y+j < this.yLen){
+              let checkIndex = this.getIndex(x+i, y+j);
+              if (!this.tiles[checkIndex].isCleared){
+                this.tiles[checkIndex].isCleared = true;
+                if (this.tiles[checkIndex].numAdjacentBombs === null) {
+                  checkme.push([this.getX(checkIndex), this.getY(checkIndex)]);
+                }
+              }
+            }
           }
         }
       }
+      // Give vue something to react to
       let index = this.getIndex(tilexy.x, tilexy.y);
       this.tiles[index].isCleared = true;
       this.tiles.splice(index, 1, this.tiles[index]);
+
+
       this.checkVictory();
     },
     checkVictory() {
-      console.log('victory?');
+      console.log('');
     }
   },
   mounted() {

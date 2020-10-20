@@ -39,7 +39,7 @@ export default {
     y: function() {this.moved()},
     isCleared: function () {
       this.setColor();
-      console.log(this.$refs["tile"].clientHeight);
+      // console.log(this.$refs["tile"].clientHeight);
     }
   },
   created: function() {
