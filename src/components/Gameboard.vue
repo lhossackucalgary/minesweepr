@@ -95,7 +95,7 @@ export default {
         this.tiles[i] = {
           isBomb: false,
           isCleared: false,
-          numAdjacentBombs: 0
+          numAdjacentBombs: null
         }
       }
       this.started = false;
@@ -118,13 +118,14 @@ export default {
       this.uncoverTiles(tilexy);
     },
     gameboardGen(tilexy) {
+      // Place bombs randomly, but not on or beside first click
       let numBombs = 0;
-      let indexNotAllowed = new Array();  // No bombs in the first square clicked!
+      let indexNotAllowed = new Array();
       for (let i = -1; i < 2; i++) {
         for (let j = -1; j < 2; j++) {
           if (0 <= this.getIndex(i + tilexy.x, j + tilexy.y) &&
               this.getIndex(i + tilexy.x, j + tilexy.y) < this.xLen * this.yLen) {
-            indexNotAllowed.push(this.getIndex(i + tilexy.x, j + tilexy.y));            
+            indexNotAllowed.push(this.getIndex(i + tilexy.x, j + tilexy.y));
           }
         }
       }
@@ -135,10 +136,45 @@ export default {
           numBombs += 1;
         }
       }
+
+      // Populate numAdjacentBombs prop
+      for (let k = 0; k < this.tiles.length; k++) {
+        if (!this.tiles[k].isBomb) {
+          let x = this.getX(k);
+          let y = this.getY(k);
+          let sum = 0;
+          for (let i = -1; i < 2; i++) {
+            for (let j = -1; j < 2; j++) {
+              if (0 <= x + i && x + i < this.xLen && 0 <= y+j && y+j < this.yLen){
+                let checkIndex = this.getIndex(x+i, y+j);
+                if (0 <= checkIndex && checkIndex < this.tiles.length && this.tiles[checkIndex].isBomb){
+                  sum += 1;
+                }
+              }
+            }
+          }
+          if (sum === 0) {
+            this.tiles[k].numAdjacentBombs = null;
+          } else {
+            this.tiles[k].numAdjacentBombs = sum;
+          }
+        }
+      }
+      this.uncoverTiles(tilexy);
     },
     uncoverTiles(tilexy) {
-      console.log(tilexy);
-
+      for (let i = -1; i < 2; i++) {
+        for (let j = -1; j < 2; j++) {
+          let checkIndex = this.getIndex(tilexy.x+i, tilexy.y+j);
+          if (0 <= checkIndex && checkIndex < this.tiles.length &&
+              this.tiles[checkIndex].numAdjacentBombs ){
+            console.log('checking')
+          }
+        }
+      }
+      let index = this.getIndex(tilexy.x, tilexy.y);
+      this.tiles[index].isCleared = true;
+      this.tiles.splice(index, 1, this.tiles[index]);
       this.checkVictory();
     },
     checkVictory() {

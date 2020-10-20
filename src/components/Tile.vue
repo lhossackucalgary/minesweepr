@@ -1,13 +1,17 @@
 <template lang="html">
   <div
     class="tile"
+    ref="tile"
     v-bind:style="{backgroundColor: this.color}"
     @mouseover="mousemove"
     @mouseleave="setColor"
     @click.right.prevent="flagSwap"
     @click.left.prevent="clicked"
   >
-  <img src="@/assets/flag-opt.svg" v-bind:class="{flagged: this.isFlagged}" alt="flag">
+  <div v-bind:class="{visible: this.isCleared}" class="textbox">
+    <p>{{ this.numAdjacentBombs }}</p>
+  </div>
+  <img src="@/assets/flag-opt.svg" v-bind:class="{visible: this.isFlagged}" alt="flag">
   </div>
 </template>
 
@@ -35,6 +39,7 @@ export default {
     y: function() {this.moved()},
     isCleared: function () {
       this.setColor();
+      console.log(this.$refs["tile"].clientHeight);
     }
   },
   created: function() {
@@ -116,7 +121,16 @@ img {
   margin-top: 10%;
   visibility: hidden;
 }
-.flagged {
+.textbox {
+  visibility: hidden;
+  position: relative;
+}
+.visible {
   visibility: visible;
+}
+p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 </style>
