@@ -132,8 +132,11 @@ export default {
     },
     showBombs() {
       this.isGameLost = true;
-      if (this.isBomb) {
+      if (this.isBomb && !this.isFlagged) {
         this.setColor();
+      }
+      if (this.isFlagged && !this.isBomb) {
+        this.bgcolor = "black";
       }
     },
     gameWin() {
@@ -146,6 +149,7 @@ export default {
     this.setColor();
     EventBus.$on('lose-game', this.showBombs);
     EventBus.$on('win-game', this.gameWin);
+    EventBus.$on('setDifficulty', this.setColor);
     this.resize();
     window.addEventListener('resize', this.resize);
   }
