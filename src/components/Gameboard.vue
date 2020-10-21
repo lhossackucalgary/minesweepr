@@ -56,11 +56,7 @@ export default {
       let tile_target = 180;
       if (this.difficulty === "Easy") {
         this.bombCount = 10;
-        if (vw < 600 || vh < 600) {
-          tile_target = 80;
-        } else {
-          tile_target = 180;
-        }
+        tile_target = 80;      
       } else if (this.difficulty === "Medium") {
         if (vw < 600 || vh < 600) {
           tile_target = 200;
