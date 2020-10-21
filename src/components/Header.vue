@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import Difficulty from './Difficulty.vue';
-import Timer from './Timer.vue';
-import BombCount from './BombCount.vue';
-import MiscControls from './MiscControls.vue';
+import Difficulty from '@/components/Difficulty.vue';
+import Timer from '@/components/Timer.vue';
+import BombCount from '@/components/BombCount.vue';
+import MiscControls from '@/components/MiscControls.vue';
 
 export default {
   name: 'Header',

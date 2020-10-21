@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Gameboard from './components/Gameboard.vue';
-import Header from './components/Header.vue';
-import LeaderBoard from './components/LeaderBoard.vue';
+import Gameboard from '@/components/Gameboard.vue';
+import Header from '@/components/Header.vue';
+import LeaderBoard from '@/components/LeaderBoard.vue';
 
 export default {
   name: 'App',
