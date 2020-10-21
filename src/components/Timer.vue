@@ -44,12 +44,17 @@ export default {
           this.inc();
         }, 1000-clockDrift);
       }
+    },
+    winGame() {
+      this.stop();
+      EventBus.$emit('game-win-time', this.ellapsedTime);
     }
   },
   mounted() {
       EventBus.$on('setDifficulty', this.resetTimer);
       this.resetTimer();
-      EventBus.$on('stop', this.stop);
+      EventBus.$on('lose-game', this.stop);
+      EventBus.$on('win-game', this.winGame);
       EventBus.$on('start', this.start);
   }
 }

@@ -46,6 +46,7 @@ export default {
   },
   methods: {
     resetBoard(difficulty) {
+      EventBus.$emit('setBombCount', this.bombCount);
       // Set board template
       let vw = this.$refs["board"].clientWidth;
       let header_height = this.$parent.$children[0].$refs["header"].clientHeight;
@@ -56,7 +57,7 @@ export default {
       let tile_target = 180;
       if (this.difficulty === "Easy") {
         this.bombCount = 10;
-        tile_target = 80;      
+        tile_target = 80;
       } else if (this.difficulty === "Medium") {
         if (vw < 600 || vh < 600) {
           tile_target = 200;

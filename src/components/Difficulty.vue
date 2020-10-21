@@ -26,6 +26,7 @@ export default {
   },
   mounted() {
     EventBus.$on('bombCountMounted', this.chgDifficulty);
+    EventBus.$on('restart', this.chgDifficulty);
   }
 }
 </script>
