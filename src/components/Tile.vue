@@ -153,8 +153,16 @@ export default {
     EventBus.$on('lose-game', this.showBombs);
     EventBus.$on('win-game', this.gameWin);
     EventBus.$on('setDifficulty', this.setColor);
-    this.resize();
     window.addEventListener('resize', this.resize);
+  },
+  updated() {
+    this.resize();
+  },
+  beforeDestroy() {
+    EventBus.$off('lose-game', this.showBombs);
+    EventBus.$off('win-game', this.gameWin);
+    EventBus.$off('setDifficulty', this.setColor);
+    window.removeEventListener('resize', this.resize);
   }
 }
 </script>
