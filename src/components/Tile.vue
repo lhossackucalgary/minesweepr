@@ -2,15 +2,15 @@
   <div
     class="tile"
     ref="tile"
-    v-bind:style="{backgroundColor: this.color}"
+    v-bind:style="{backgroundColor: this.bgcolor}"
     @mouseover="mousemove"
     @mouseleave="setColor"
     @click.right.prevent="flagSwap"
     @click.left.prevent="clicked"
   >
-  <div v-bind:class="{visible: this.isCleared}" class="textbox">
-    <p>{{ this.numAdjacentBombs }}</p>
-  </div>
+  <p v-bind:class="{visible: this.isCleared}"
+     v-bind:style="{fontSize: this.height}"
+    >{{ this.numAdjacentBombs }}</p>
   <img src="@/assets/flag-opt.svg" v-bind:class="{visible: this.isFlagged}" alt="flag">
   </div>
 </template>
@@ -26,7 +26,9 @@ export default {
       isOdd: false,
       isGameWon: false,
       isGameLost: false,
-      color: "rgb(170,215,81)"
+      bgcolor: "rgb(170,215,81)",
+      color: "black",
+      height: "1em"
     }
   },
   props: {
@@ -43,6 +45,9 @@ export default {
     isCleared: function () {
       this.setColor();
       // console.log(this.$refs["tile"].clientHeight);
+    },
+    numAdjacentBombs: function() {
+
     }
   },
   created: function() {
@@ -62,13 +67,17 @@ export default {
         // ignore clicks on flagged squares
       }
     },
+    resize() {
+      this.height = String(this.$refs.tile.clientHeight) + "px";
+    },
     moved() {
       this.setOdd();
       this.setColor();
+      this.resize();
     },
     mousemove() {
       if (!this.isCleared && !this.isGameWon && !this.isGameLost) {
-        this.color = "rgb(185, 221, 119)";
+        this.bgcolor = "rgb(185, 221, 119)";
       }
     },
     flagSwap() {
@@ -98,25 +107,26 @@ export default {
       this.isGameLost = false;
     },
     setColor() {
+      this.resize();
       if (this.isGameWon && this.isCleared) {
-        this.color = "rgb(143,201,249)";
+        this.bgcolor = "rgb(143,201,249)";
         return;
       }
       if (this.isGameLost && this.isBomb) {
-        this.color = 'rgb(244,133,42)';
+        this.bgcolor = 'rgb(244,133,42)';
         return;
       }
       if (this.isOdd) {
         if (this.isCleared) {
-          this.color = "rgb(215,184,153)";
+          this.bgcolor = "rgb(215,184,153)";
         } else {
-          this.color = "rgb(162,209,73)";
+          this.bgcolor = "rgb(162,209,73)";
         }
       } else {
         if (this.isCleared) {
-          this.color = "rgb(229,194,159)";
+          this.bgcolor = "rgb(229,194,159)";
         } else {
-          this.color = "rgb(170,215,81)";
+          this.bgcolor = "rgb(170,215,81)";
         }
       }
     },
@@ -136,14 +146,19 @@ export default {
     this.setColor();
     EventBus.$on('lose-game', this.showBombs);
     EventBus.$on('win-game', this.gameWin);
+    this.resize();
+    window.addEventListener('resize', this.resize);
   }
 }
 </script>
 
 <style lang="css" scoped>
-/* .tile:hover {
-  background-color: rgb(185, 221, 119);
-} */
+.tile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 img {
   display: block;
   width: 70%;
@@ -151,16 +166,14 @@ img {
   margin-top: 10%;
   visibility: hidden;
 }
-.textbox {
+/* .textbox {
+} */
+
+p {
+  position: absolute;
   visibility: hidden;
-  position: relative;
 }
 .visible {
   visibility: visible;
-}
-p {
-  position: absolute;
-  text-align: center;
-  width: 100%;
 }
 </style>
