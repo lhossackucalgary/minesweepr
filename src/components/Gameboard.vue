@@ -81,6 +81,10 @@ export default {
       if ( 0.95*vw/xLen * yLen >= vh) {
         yLen -= 1;
       }
+      if (vw < 420) {
+        // may reflow due to header compression..
+        yLen -= 1;
+      }
 
       this.xLen = xLen;
       this.yLen = yLen;
