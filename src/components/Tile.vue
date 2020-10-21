@@ -44,6 +44,9 @@ export default {
     isBomb: function() {this.moved()},
     isCleared: function () {
       this.setColor();
+      if (this.isCleared && this.isFlagged) {
+        this.isFlagged = false;
+      }
       // console.log(this.$refs["tile"].clientHeight);
     },
     numAdjacentBombs: function() {
