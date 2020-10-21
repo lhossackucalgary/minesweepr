@@ -72,17 +72,13 @@ export default {
       let xLen = 1;
       let yLen = 1;
       while (xLen * yLen < tile_target) {
-        if (xLen/ yLen > aspect_ratio) {
+        if ((xLen-1)/ yLen > aspect_ratio) {
           yLen += 1;
         } else {
           xLen += 1;
         }
       }
-      if ( 0.95*vw/xLen * yLen >= vh) {
-        yLen -= 1;
-      }
-      if (vw < 420) {
-        // may reflow due to header compression..
+      if ( vw/(xLen-1) * yLen >= vh) {
         yLen -= 1;
       }
 
