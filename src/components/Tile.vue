@@ -71,7 +71,7 @@ export default {
       }
     },
     resize() {
-      this.height = String(this.$refs.tile.clientHeight) + "px";
+      this.height = String(this.$refs.tile.clientHeight * 0.8) + "px";
     },
     moved() {
       this.setOdd();
