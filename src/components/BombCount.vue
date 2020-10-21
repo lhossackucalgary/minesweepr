@@ -1,7 +1,7 @@
 <template>
   <div class="flags-widget">
     <img src="@/assets/flag-opt.svg" alt="Flag">
-    <p>{{ flags }}</p>
+    <p>{{ flags.toString().padStart(2, '0') }}</p>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
   data () {
     return {
-      flags: null
+      flags: 0
     }
   },
   methods: {
