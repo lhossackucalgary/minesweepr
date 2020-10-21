@@ -166,7 +166,7 @@ export default {
       let checkme = new Array();
       let checkIndex = this.getIndex(tilexy.x, tilexy.y);
       if (this.tiles[checkIndex].isBomb) {
-        alert("you lost")
+        EventBus.$emit('lose-game');
         return;
       }
       if (!this.tiles[checkIndex].isCleared){
@@ -212,7 +212,7 @@ export default {
         }
       }
       if (uncovered === this.tiles.length - this.bombCount) {
-        alert("You win!");
+        EventBus.$emit('win-game');
       }
     }
   },

@@ -24,6 +24,8 @@ export default {
     return {
       isFlagged: false,
       isOdd: false,
+      isGameWon: false,
+      isGameLost: false,
       color: "rgb(170,215,81)"
     }
   },
@@ -49,6 +51,9 @@ export default {
   },
   methods: {
     clicked () {
+      if (this.isGameWon || this.isGameLost) {
+        return;
+      }
       if (!this.isFlagged) {
         EventBus.$emit('tileclick', {x: this.x, y: this.y})
         // this.isCleared = true;
@@ -61,11 +66,14 @@ export default {
       this.setColor();
     },
     mousemove() {
-      if (!this.isCleared) {
+      if (!this.isCleared && !this.isGameWon && !this.isGameLost) {
         this.color = "rgb(185, 221, 119)";
       }
     },
     flagSwap() {
+      if (this.isGameWon || this.isGameLost) {
+        return;
+      }
       if (!this.isCleared) {
         if (this.isFlagged === true) {
           this.isFlagged = false;
@@ -85,9 +93,18 @@ export default {
     },
     reset() {
       this.isFlagged = false;
-      // this.isCleared = false;
+      this.isGameWon = false;
+      this.isGameLost = false;
     },
     setColor() {
+      if (this.isGameWon && this.isCleared) {
+        this.color = "rgb(143,201,249)";
+        return;
+      }
+      if (this.isGameLost && this.isBomb) {
+        this.color = 'rgb(244,133,42)';
+        return;
+      }
       if (this.isOdd) {
         if (this.isCleared) {
           this.color = "rgb(215,184,153)";
@@ -101,19 +118,31 @@ export default {
           this.color = "rgb(170,215,81)";
         }
       }
+    },
+    showBombs() {
+      this.isGameLost = true;
+      if (this.isBomb) {
+        this.setColor();
+      }
+    },
+    gameWin() {
+      this.isGameWon = true;
+      this.setColor();
     }
   },
   mounted() {
     this.setOdd();
     this.setColor();
+    EventBus.$on('lose-game', this.showBombs);
+    EventBus.$on('win-game', this.gameWin);
   }
 }
 </script>
 
 <style lang="css" scoped>
-.tile:hover {
+/* .tile:hover {
   background-color: rgb(185, 221, 119);
-}
+} */
 img {
   display: block;
   width: 70%;
