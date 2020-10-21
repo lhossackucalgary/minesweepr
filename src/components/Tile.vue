@@ -116,7 +116,7 @@ export default {
         return;
       }
       if (this.isGameLost && this.isBomb) {
-        this.bgcolor = 'rgb(244,133,42)';
+        this.bgcolor = 'rgb(219,63,55)';
         return;
       }
       if (this.isOdd) {
@@ -170,12 +170,10 @@ img {
   display: block;
   width: 70%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 7.5%;
+  margin-bottom: 7.5%;
   visibility: hidden;
 }
-/* .textbox {
-} */
-
 p {
   position: absolute;
   visibility: hidden;
