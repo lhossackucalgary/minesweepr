@@ -103,7 +103,7 @@ img {
     width: 80%;
   }
 }
-@media (orientation: landscape) {
+@media (max-height: 600px) and (orientation: landscape) {
   .leaders {
     height: 60vh;
   }
