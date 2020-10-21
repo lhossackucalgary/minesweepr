@@ -46,6 +46,7 @@ export default {
       this.setColor();
       if (this.isCleared && this.isFlagged) {
         this.isFlagged = false;
+        EventBus.$emit('rm-flag')
       }
       // console.log(this.$refs["tile"].clientHeight);
     },
