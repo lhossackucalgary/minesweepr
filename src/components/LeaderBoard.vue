@@ -22,11 +22,16 @@ export default {
     return {
       topScore: "----",
       curScore: "----",
-      visibility: "hidden"
+      visibility: "hidden",
+      blocked: false
     }
   },
   methods: {
     show() {
+      if (this.blocked) {
+        this.blocked = false;
+        return;
+      }
       this.visibility = "visible";
     },
     hide() {
@@ -34,6 +39,13 @@ export default {
     },
     showSoon() {
       setTimeout(() => {this.show()}, 2000);
+    },
+    blockLeaderboard() {
+      this.blocked = true;
+      this.visibility = "hidden";
+      setTimeout(() => {
+        this.blocked = false;
+      }, 2000);
     },
     checkTopScore(s) {
       this.curScore = s;
@@ -53,6 +65,7 @@ export default {
     EventBus.$on('win-game', this.showSoon);
     EventBus.$on('lose-game', this.showSoon);
     EventBus.$on('game-win-time', this.checkTopScore);
+    EventBus.$on('setDifficulty', this.blockLeaderboard);
   }
 }
 </script>
