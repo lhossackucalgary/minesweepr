@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg id="svg1219" width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="svg1219" width="39.141mm" height="61.832mm" version="1.1" viewBox="0 0 39.141 61.832" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs id="defs1213">
   <linearGradient id="linearGradient1804">
    <stop id="stop1800" stop-color="#fae664" offset="0"/>
@@ -75,7 +75,7 @@
    </cc:Work>
   </rdf:RDF>
  </metadata>
- <g id="layer1">
+ <g id="layer1" transform="translate(-86.263 -100.45)">
   <path id="path1766" d="m86.263 162.28a19.571 12.095 0 0 1 19.571-12.095 19.571 12.095 0 0 1 19.571 12.095h-19.571z" fill="url(#linearGradient1786)" opacity=".99" stroke-width=".26458"/>
   <ellipse id="path1776" cx="105.83" cy="150.19" rx="9.5149" ry="4.7575" fill="url(#linearGradient1798)" opacity=".99" stroke-width=".26458"/>
   <path id="path1808" d="m123.22 101.96a17.387 28.133 0 0 1-8.6934 24.364 17.387 28.133 0 0 1-17.387-1e-5 17.387 28.133 0 0 1-8.6935-24.364h17.387z" fill="url(#linearGradient3734)" opacity=".99" stroke="#fae664" stroke-width=".265"/>

@@ -1,7 +1,14 @@
 <template lang="html">
   <div class="leaderboard" v-bind:style="{visibility: this.visibility}">
     <div class="leaders">
-
+      <div class="curscore">
+        <img src="@/assets/stopwatch-low-opt.svg" alt="Timer">
+        <p>{{ this.curScore }}</p>
+      </div>
+      <div class="topscore">
+        <img src="@/assets/trophy-opt.svg" alt="Trophy">
+        <p>{{ this.topScore }}</p>
+      </div>
     </div>
     <button @click.left.prevent="restart">Restart</button>
   </div>
@@ -14,6 +21,7 @@ export default {
   data: function () {
     return {
       topScore: "----",
+      curScore: "----",
       visibility: "hidden"
     }
   },
@@ -28,6 +36,7 @@ export default {
       setTimeout(() => {this.show()}, 2000);
     },
     checkTopScore(s) {
+      this.curScore = s;
       if (this.topScore === "----") {
         this.topScore = s;
       } else if (s < this.topScore) {
@@ -36,6 +45,7 @@ export default {
     },
     restart() {
       this.hide();
+      this.curScore = "----";
       EventBus.$emit('restart');
     }
   },
@@ -43,7 +53,6 @@ export default {
     EventBus.$on('win-game', this.showSoon);
     EventBus.$on('lose-game', this.showSoon);
     EventBus.$on('game-win-time', this.checkTopScore);
-
   }
 }
 </script>
@@ -65,9 +74,17 @@ export default {
 .leaders {
   width: 500px;
   height: 35vh;
-  background-color: rgb(143,201,249);
+  background-color: rgb(77,193,249);
   margin-bottom: 10px;
   border-radius: 8px;
+
+  font-size: 2em;
+  color: white;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 button {
   padding: 1em;
@@ -76,6 +93,9 @@ button {
   background-color: rgb(74,117,44);
   color: white;
   font-size: 1.5em;
+}
+img {
+  height: 3em;
 }
 
 @media (max-width: 800px) {
