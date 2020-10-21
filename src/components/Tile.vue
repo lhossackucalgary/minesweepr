@@ -39,6 +39,7 @@ export default {
   watch: {
     x: function() {this.moved()},
     y: function() {this.moved()},
+    isBomb: function() {this.moved()},
     isCleared: function () {
       this.setColor();
       // console.log(this.$refs["tile"].clientHeight);
