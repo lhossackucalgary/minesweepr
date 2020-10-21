@@ -9,7 +9,7 @@
     @click.left.prevent="clicked"
   >
   <p v-bind:class="{visible: this.isCleared}"
-     v-bind:style="{fontSize: this.height}"
+     v-bind:style="{fontSize: this.height, color: this.color}"
     >{{ this.numAdjacentBombs }}</p>
   <img src="@/assets/flag-opt.svg" v-bind:class="{visible: this.isFlagged}" alt="flag">
   </div>
@@ -48,10 +48,21 @@ export default {
         this.isFlagged = false;
         EventBus.$emit('rm-flag')
       }
-      // console.log(this.$refs["tile"].clientHeight);
     },
     numAdjacentBombs: function() {
-
+      let color_list = [
+        "rgb(26,118,210)",
+        "rgb(66,142,60)",
+        "rgb(212,60,48)",
+        "rgb(126,72,162)",
+        "rgb(248,143,44)",
+        "black",
+        "black",
+        "black",
+      ]
+      if (this.numAdjacentBombs !== null) {
+        this.color = color_list[this.numAdjacentBombs];
+      }
     }
   },
   created: function() {
@@ -114,6 +125,7 @@ export default {
       this.resize();
       if (this.isGameWon && this.isCleared) {
         this.bgcolor = "rgb(143,201,249)";
+        this.color = this.bgcolor;
         return;
       }
       if (this.isGameLost && this.isBomb) {
