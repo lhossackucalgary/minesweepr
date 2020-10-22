@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="leaderboard" v-bind:style="{visibility: this.visibility}">
+    {{ this.msg }}
     <div class="leaders">
       <div class="curscore">
         <img src="@/assets/stopwatch-low-opt.svg" alt="Timer">
@@ -10,7 +11,7 @@
         <p>{{ this.topScore }}</p>
       </div>
     </div>
-    <button @click.left.prevent="restart">Restart</button>
+    <button @click.left.prevent="restart">{{this.msg}}</button>
   </div>
 </template>
 
@@ -23,7 +24,8 @@ export default {
       topScore: "----",
       curScore: "----",
       visibility: "hidden",
-      blocked: false
+      blocked: false,
+      msg: ""
     }
   },
   methods: {
@@ -37,8 +39,13 @@ export default {
     hide() {
       this.visibility = "hidden";
     },
-    showSoon() {
-      setTimeout(() => {this.show()}, 2000);
+    showWinSoon() {
+      this.msg = "You won! Play again?";
+      setTimeout(() => {this.show()}, 1500);
+    },
+    showLossSoon() {
+      this.msg = "You lost. Try again?";
+      setTimeout(() => {this.show()}, 1500);
     },
     blockLeaderboard() {
       this.blocked = true;
@@ -62,8 +69,8 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on('win-game', this.showSoon);
-    EventBus.$on('lose-game', this.showSoon);
+    EventBus.$on('win-game', this.showWinSoon);
+    EventBus.$on('lose-game', this.showLossSoon);
     EventBus.$on('game-win-time', this.checkTopScore);
     EventBus.$on('setDifficulty', this.blockLeaderboard);
   }
